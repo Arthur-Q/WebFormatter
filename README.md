@@ -9,14 +9,12 @@ WebFormatter 用于格式换Web开发相关的语言格式.
 * Notepad++ (unicode版)
 
 WebFormatter集成了Zend Coding插件, 可以输入: 
-    html>heay+body 
+	html>heay+body 
 然后按下 "alt+shift+e", 则可以展开成:
-    <html>
-        <head>
-        </head>
-        <body>
-        </body>
-    </html>
+	<html>
+		<heay></heay>
+		<body></body>
+	</html>
 
 WebFormattter集成了 MenuCmds 和SmartHighlighter插件, 因为  SmartHighlighter 插件 使用了 MenuCmds 插件. 
 SmartHighlighter的主要作用,是当搜索一个关键字的时候, 会在窗口滚动条右侧, 用颜色标识出关键字出现的位置. 
