@@ -120,9 +120,22 @@ itemMenu.addItem(zendCodingFileCfg);
 
 var looks_like_html = function looks_like_html(source) {
         // <foo> - looks like html // <!--\nalert('foo!');\n-- > -doesn 't look like html
+        var result = false;
         var trimmed = source.replace(/^[\t\n\r]+/, '');
         var comment_mark = ' < ' + '!-' + ' - ';
-        return (trimmed && (trimmed.substring(0, 1) === ' < ' && trimmed.substring(0, 4) !== comment_mark));
+        var isXml = trimmed.substring(0, 2)==="<?";
+        var isHtml = trimmed.substring(0, 1)==="<";
+        var isComment = trimmed.substring(0, 4) === comment_mark;
+        if( isComment ){
+            result = false;
+        }
+        else if(isXml || isHtml){
+            result = true;
+        }
+        else{
+            result = false;
+        }
+        return result;
     };
 var looks_like_css = function looks_like_html(source) {
         // <foo> - looks like html // <!--\nalert('foo!');\n--> - doesn't look like html
