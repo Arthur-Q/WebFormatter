@@ -20,7 +20,7 @@
             <WordsStyle name="DEFAULT" styleID="11" fgColor="8DB0D3" bgColor="112435" fontName="" fontStyle="0" />
             <WordsStyle name="FOLDEROPEN" styleID="12" fgColor="8DB0D3" bgColor="112435" fontName="" fontStyle="0" />
             <WordsStyle name="FOLDERCLOSE" styleID="13" fgColor="8DB0D3" bgColor="112435" fontName="" fontStyle="0" />
-            <WordsStyle name="KEYWORD1" styleID="5" fgColor="0000FF" bgColor="112435" fontName="" fontStyle="0" />
+            <WordsStyle name="KEYWORD1" styleID="5" fgColor="00FFFF" bgColor="112435" fontName="" fontStyle="0" />
             <WordsStyle name="KEYWORD2" styleID="6" fgColor="EEC604" bgColor="112435" fontName="" fontStyle="1" />
             <WordsStyle name="KEYWORD3" styleID="7" fgColor="F08047" bgColor="112435" fontName="" fontStyle="1" />
             <WordsStyle name="KEYWORD4" styleID="8" fgColor="808040" bgColor="112435" fontName="" fontStyle="0" />
