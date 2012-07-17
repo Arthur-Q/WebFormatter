@@ -1,11 +1,11 @@
-#WebFormatter 用于格式换Web开发相关的语言格式.
+##WebFormatter 用于格式换Web开发相关的语言格式.
 目前支持的语言包括:
-Javascript
-HTML
-CSS
+* Javascript
+* HTML
+* CSS
 
 目前支持的浏览器插件:
-Notepad++ (unicode版)
+* Notepad++ (unicode版)
 
 
 
