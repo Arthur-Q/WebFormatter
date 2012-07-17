@@ -8,8 +8,8 @@ WebFormatter 用于格式换Web开发相关的语言格式.
 目前支持的IDE:
 * Notepad++ (unicode版)
 
-WebFormatter集成了Zend Coding插件, 可以输入: 
-	html>heay+body 
+WebFormatter集成了Zend Coding插件, 比如输入: 
+    html>heay+body 
 然后按下 "alt+shift+e", 则可以展开成:
 	<html>
 		<heay></heay>
