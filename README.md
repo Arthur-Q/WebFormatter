@@ -12,7 +12,7 @@ WebFormatter集成了Zend Coding插件, 比如输入:
 
     html>head+body  
     
-然后按下 "alt+shift+e", 则可以展开成:
+然后按下 "ctrl+2", 则可以展开成:
 
     <html>
         <head></head>
@@ -29,19 +29,17 @@ SmartHighlighter的主要作用,是当搜索一个关键字的时候, 会在窗�
 
 ##使用方法
 启动notepad++后, 菜单栏会增加 WebFormatter 菜单项. 里面包括:
-* Smart Format Current File Shift+Alt+Z: 智能格式化代码(整个文件), 会根据文件内容自动选择格式化类型.
-* Smart Format Selected Text Shift+Alt+S: 智能格式化代码(选中文字), 会根据文件内容自动选择格式化类型.
-* Only Format Js File Shift+Alt+J: 使用JS格式化器格式化文件
-* Only Format Css File Shift+Alt+C: 使用CSS格式化器格式化文件
-* Only Format Html File Shift+Alt+H: 使用HTML格式化器格式化文件
-* Zend Coding Expand Shift+Alt+E: 扩展 Zend Coding 标签
+* Smart Format Current File Ctrl+1: 智能格式化代码(整个文件), 会根据文件内容自动选择格式化类型.
+* Smart Format Selected Text : 智能格式化代码(选中文字), 会根据文件内容自动选择格式化类型.
+* Only Format Js File : 使用JS格式化器格式化文件
+* Only Format Css File : 使用CSS格式化器格式化文件
+* Only Format Html File : 使用HTML格式化器格式化文件
+* Zend Coding Expand Ctrl+2: 扩展 Zend Coding 标签
 
 ##其他说明
 在 [Notepad++ Directory] 目录中, 有一个 userDefineLang.xml 文件. 用来支持markdown文件(.md结尾)的语法找色.
-使用方法是打开notepad++, 选择 视图->自定义语言对话框->导入, 选中此xml文件即可.
+使用方法是打开notepad++, 选择 "语言"->"define your language"->"导入", 选中此xml文件, 重启notepad, 会发现打开".md"结尾的文件时, 已经能够识别成markdown文件了.
 
-推荐使用配色方案:
-Ruby Blue(在设置->语言格式设置中选择)
 
 本插件格式化后的换行符为Unix格式, 即"LF", Window格式为"CR LF", Mac格式为"CR".
 可以在"编辑->档案格式转换"菜单中, 更改换行符的格式. 

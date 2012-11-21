@@ -15,14 +15,18 @@ var webFormatterConfig = {
 
 
 var webFormatterCurrentFileCfg = {
-    text: "Smart Format Current File \t Shift+Alt+Z",
-    shift: true,
-    alt: true,
-    key: "z",
+    text: "Smart Format Current File \t Ctrl+1",
+	ctrl: true,
+    shift: false,
+    alt: false,
+    key: "1",
     cmd: function () {
         var source = Editor.currentView.text;
         var output = source;
-        if (looks_like_html(source)) {
+		if (looks_like_js(source)) {
+            output = js_beautify(source, webFormatterConfig);
+        }
+        else if (looks_like_html(source)) {
             output = style_html(source, webFormatterConfig);
         }
         else if (looks_like_css(source)) {
@@ -37,10 +41,11 @@ var webFormatterCurrentFileCfg = {
 
 
 var webFormatterSelectionCfg = {
-    text: "Smart Format Selected Text \t Shift+Alt+S",
-    shift: true,
-    alt: true,
-    key: "s",
+    text: "Smart Format Selected Text \t ",
+	ctrl: true,
+    shift: false,
+    alt: false,
+    key: "1",
     cmd: function () {
         var source = Editor.currentView.selection;
         var output = source;
@@ -56,10 +61,11 @@ var webFormatterSelectionCfg = {
         Editor.currentView.text = output;
     }
 };
+
 var jsFormatterFileCfg = {
-    text: "Only Format Js File \t Shift+Alt+J",
+    text: "Only Format Js File \t ",
     shift: true,
-    alt: true,
+    alt: false,
     key: "j",
     cmd: function () {
         var source = Editor.currentView.text;
@@ -69,9 +75,9 @@ var jsFormatterFileCfg = {
     }
 };
 var cssFormatterFileCfg = {
-    text: "Only Format Css File \t Shift+Alt+C",
+    text: "Only Format Css File \t ",
     shift: true,
-    alt: true,
+    alt: false,
     key: "c",
     cmd: function () {
         var source = Editor.currentView.text;
@@ -81,9 +87,9 @@ var cssFormatterFileCfg = {
     }
 };
 var htmlFormatterFileCfg = {
-    text: "Only Format Html File \t Shift+Alt+H",
+    text: "Only Format Html File \t ",
     shift: true,
-    alt: true,
+    alt: false,
     key: "h",
     cmd: function () {
         var source = Editor.currentView.text;
@@ -94,21 +100,23 @@ var htmlFormatterFileCfg = {
 };
 
 var zendCodingFileCfg = {
-    text: "Zend Coding Expand \t Shift+Alt+E",
-    shift: true,
-    alt: true,
-    key: "e",
+    text: "Zend Coding Expand \t Ctrl+2",
+    shift: false,
+    alt: false,
+	ctrl: true,
+    key: "2",
     cmd: function () {
         zc_manager("expand_abbreviation");
     }
 };
 
 
+
 System.addSystemHotKey(webFormatterCurrentFileCfg);
-System.addSystemHotKey(webFormatterSelectionCfg);
-System.addSystemHotKey(jsFormatterFileCfg);
-System.addSystemHotKey(cssFormatterFileCfg);
-System.addSystemHotKey(htmlFormatterFileCfg);
+//System.addSystemHotKey(webFormatterSelectionCfg);
+//System.addSystemHotKey(jsFormatterFileCfg);
+//System.addSystemHotKey(cssFormatterFileCfg);
+//System.addSystemHotKey(htmlFormatterFileCfg);
 System.addSystemHotKey(zendCodingFileCfg);
 itemMenu.addItem(webFormatterCurrentFileCfg);
 itemMenu.addItem(webFormatterSelectionCfg);
@@ -117,6 +125,15 @@ itemMenu.addItem(cssFormatterFileCfg);
 itemMenu.addItem(htmlFormatterFileCfg);
 itemMenu.addItem(zendCodingFileCfg);
 
+var looks_like_js = function (source){
+	    var result = false;
+        var trimmed = source.replace(/^[\t\n\r]+/, '');
+		var startString = trimmed.substring(0, 10)
+		if( startString.indexOf("(")===0 || startString.indexOf("function")>-1 || startString.indexOf("var ")>-1 ){
+			result = true;
+		}
+		return result;
+	};
 
 var looks_like_html = function looks_like_html(source) {
         // <foo> - looks like html // <!--\nalert('foo!');\n-- > -doesn 't look like html
